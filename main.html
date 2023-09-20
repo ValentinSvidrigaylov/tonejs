@@ -1,5 +1,9 @@
 <script src="http://unpkg.com/tone"></script>
 <script>
+const key_width = 5;
+const keyborder_width = 1.25;
+const key_height = 280;
+
 const synth = new Tone.PolySynth(Tone.Synth).toDestination();
 
 const notes = ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
@@ -7,22 +11,22 @@ let octave = 1 //init octave
 let synthsvg = document.querySelector('svg#synth');
 let overoctaves = 0;
 for (let i of synthsvg.children) {
-console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+overoctaves}`);
 let curoveroctaves = overoctaves; //we need to save current overoctave value
+console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 i.onmousedown = (e) => {
 event.stopPropagation();
-synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`, Tone.now());
-console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`);
+synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
 i.onmouseup = (e) => {
 event.stopPropagation();
-synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`, Tone.now());
-console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`);
+synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
 i.onmouseleave = (e) => {
 event.stopPropagation();
-synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`, Tone.now());
-//console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`);
+synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+//console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
 if ([...synthsvg.children].indexOf(i) == 11) { //12 - octave length
 overoctaves++;
