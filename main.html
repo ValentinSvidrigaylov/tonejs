@@ -5,29 +5,30 @@ const synth = new Tone.PolySynth(Tone.Synth).toDestination();
 const notes = ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
 let octave = 1 //init octave
 let synthsvg = document.querySelector('svg#synth');
+let overoctaves = 0;
 for (let i of synthsvg.children) {
-console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave}`);
+console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+overoctaves}`);
+let curoveroctaves = overoctaves; //we need to save current overoctave value
 i.onmousedown = (e) => {
 event.stopPropagation();
-synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave}`, Tone.now());
-console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave}`);
+synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`, Tone.now());
+console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`);
 }
 i.onmouseup = (e) => {
 event.stopPropagation();
-synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave}`, Tone.now());
-console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave}`);
+synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`, Tone.now());
+console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`);
 }
 i.onmouseleave = (e) => {
 event.stopPropagation();
-synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave}`, Tone.now());
-//console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave}`);
+synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`, Tone.now());
+//console.log(`${notes[[...synthsvg.children].indexOf(i)]}`+`${octave+curoveroctaves }`);
+}
+if ([...synthsvg.children].indexOf(i) == 11) { //12 - octave length
+overoctaves++;
 }
 }
 
-
-let octave1 = [
-
-]
 /*
 let C2 = document.getElementById("C2");
 let C4 = document.getElementById("C4");
