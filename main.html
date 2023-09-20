@@ -1,0 +1,85 @@
+<button onClick="Tone.start()">play</button><br>
+<button id="C4">C4</button>
+<button id="C2">C2</button>
+<script src="http://unpkg.com/tone"></script>
+<script>
+/*// create two monophonic synths
+const synthA = new Tone.FMSynth().toDestination();
+const synthB = new Tone.AMSynth().toDestination();
+//play a note every quarter-note
+const loopA = new Tone.Loop(time => {
+	synthA.triggerAttackRelease("C2", "8n", time);
+}, "4n").start(0);
+//play another note every off quarter-note, by starting it "8n"
+const loopB = new Tone.Loop(time => {
+	synthB.triggerAttackRelease("C4", "8n", time);
+}, "4n").start("8n");
+// the loops start when the Transport is started
+Tone.Transport.start()
+// ramp up to 800 bpm over 10 seconds
+Tone.Transport.bpm.rampTo(800, 10);*/
+/*const synth = new Tone.Synth().toDestination();
+let C2 = document.getElementById("C2");
+let C4 = document.getElementById("C4");
+C2.onmousedown = () => {
+    console.log(Tone.now());
+    synth.triggerAttack("C2", Tone.now());
+}
+C2.onmouseup = () => {
+    console.log(Tone.now());
+    synth.triggerRelease("C2",Tone.now());
+    console.log(Tone.now());
+}
+C4.onmousedown = () => {
+    synth.triggerAttack("C4", Tone.now());
+}
+C4.onmouseup = () => {
+    synth.triggerRelease(["C4"],Tone.now());
+}*/
+Tone.start();
+const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+/*const now = Tone.now()
+synth.triggerAttack("D4", now);
+synth.triggerAttack("F4", now + 0.5);
+synth.triggerAttack("A4", now + 1);
+synth.triggerAttack("C5", now + 1.5);
+synth.triggerAttack("E5", now + 2);
+synth.triggerRelease(["D4", "F4", "A4", "C5", "E5"], now + 4);*/
+let C2 = document.getElementById("C2");
+let C4 = document.getElementById("C4");
+C2.onmousedown = () => {
+    console.log(Tone.now());
+    synth.triggerAttack("C2", Tone.now());
+}
+C2.onmouseup = () => {
+    console.log(Tone.now());
+    synth.triggerRelease("C2",Tone.now());
+    console.log(Tone.now());
+}
+C4.onmousedown = () => {
+    synth.triggerAttack("C4", Tone.now());
+}
+C4.onmouseup = () => {
+    synth.triggerRelease(["C4"],Tone.now());
+}
+window.onkeydown = (e) => {
+    console.log(Tone.now());
+    if (e.key == "c" && !C4.getAttribute("isPressed")) {
+        synth.triggerAttack("C4", Tone.now());
+        C4.setAttribute("isPressed", true);
+    } else if (e.key == "v" && !C2.getAttribute("isPressed")) {
+        synth.triggerAttack("C2", Tone.now());
+        C2.setAttribute("isPressed", true);
+    }
+}
+window.onkeyup = (e) => {
+    console.log(Tone.now());
+    if (e.key == "c") {
+        synth.triggerRelease("C4", Tone.now());        
+        C4.removeAttribute("isPressed");
+    } else if (e.key == "v") {
+        synth.triggerRelease("C2", Tone.now());
+        C2.removeAttribute("isPressed");
+    }
+}
+</script>
