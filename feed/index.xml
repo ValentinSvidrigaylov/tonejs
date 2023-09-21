@@ -9,7 +9,7 @@
 
 <channel>
 	<title>Главная</title>
-	<atom:link href="http://wordpress/feed/?simply_static_page=107" rel="self" type="application/rss+xml" />
+	<atom:link href="http://wordpress/feed/?simply_static_page=133" rel="self" type="application/rss+xml" />
 	<link>https://valentinsvidrigaylov.github.io/tonejs/</link>
 	<description></description>
 	<lastBuildDate>Wed, 20 Sep 2023 13:41:38 +0000</lastBuildDate>
