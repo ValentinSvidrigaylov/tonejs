@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Комментарии на сайте Главная	</title>
-	<atom:link href="http://wordpress/comments/feed/?simply_static_page=82" rel="self" type="application/rss+xml" />
-	<link>/</link>
+	<atom:link href="http://wordpress/comments/feed/?simply_static_page=108" rel="self" type="application/rss+xml" />
+	<link>https://valentinsvidrigaylov.github.io/tonejs/</link>
 	<description></description>
 	<lastBuildDate>Wed, 20 Sep 2023 13:41:38 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		Комментарий к записи Привет, мир! (Комментатор WordPress)		</title>
-		<link>/2023/09/20/%d0%bf%d1%80%d0%b8%d0%b2%d0%b5%d1%82-%d0%bc%d0%b8%d1%80/#comment-1</link>
+		<link>https://valentinsvidrigaylov.github.io/tonejs/2023/09/20/%d0%bf%d1%80%d0%b8%d0%b2%d0%b5%d1%82-%d0%bc%d0%b8%d1%80/#comment-1</link>
 
 		<dc:creator><![CDATA[Комментатор WordPress]]></dc:creator>
 		<pubDate>Wed, 20 Sep 2023 13:41:38 +0000</pubDate>
-		<guid isPermaLink="false">/?p=1#comment-1</guid>
+		<guid isPermaLink="false">https://valentinsvidrigaylov.github.io/tonejs/?p=1#comment-1</guid>
 
 					<description><![CDATA[Привет! Это комментарий.
 Чтобы начать модерировать, редактировать и удалять комментарии, перейдите на экран «Комментарии» в консоли.
