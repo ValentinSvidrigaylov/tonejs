@@ -1,4 +1,10 @@
-<script src="http://unpkg.com/tone"></script>
+<svg style="height: 282.5px; width: 775px" id="synth"><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="1.25" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="56.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="38.75" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="111.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="93.75" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="166.25" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="221.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="203.75" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="276.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="258.75" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="331.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="312.75" y="1.25"/>
+
+<rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="386.25" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="441.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="423.125" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="496.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="478.125" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="551.25" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="606.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="590" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="661.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="645" y="1.25"/><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="716.25" y="1.25"/><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="700" y="1.25"/>
+
+</svg>
+
+<script src="https://unpkg.com/tone"></script>
 <script>
 const key_width = 5;
 const keyborder_width = 1.25;
@@ -6,10 +12,14 @@ const key_height = 280;
 
 const synth = new Tone.PolySynth(Tone.Synth).toDestination();
 
+let octaveText = document.getElementById('octaveValue');
 const notes = ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
 let octave = 1 //init octave
 let synthsvg = document.querySelector('svg#synth');
 let overoctaves = 0;
+
+octaveText.textContent = 'Least octave: '+ octave;
+
 for (let i of synthsvg.children) {
 let curoveroctaves = overoctaves; //we need to save current overoctave value
 console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
@@ -32,6 +42,23 @@ if ([...synthsvg.children].indexOf(i) == 11) { //12 - octave length
 overoctaves++;
 }
 }
+
+let increaseOctave = document.getElementById('octave+');
+let decreaseOctave = document.getElementById('octave-');
+increaseOctave.onclick = () => {
+if (octave+overoctaves >= 7) {
+return;
+}
+octave++;
+octaveText.textContent = 'Least octave: '+ octave;
+};
+decreaseOctave.onclick = () => {
+if (octave < 1) {
+return;
+}
+octave--;
+octaveText.textContent = 'Least octave: '+ octave;
+};
 
 /*
 let C2 = document.getElementById("C2");
