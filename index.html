@@ -109,18 +109,103 @@ margin-right: auto;
 <rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="386.25" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="441.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="423.125" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="496.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="478.125" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="551.25" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="606.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="590" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="661.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="645" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="716.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="700" y="1.25"></rect>
 
 </svg>
-
+<script type="text/javascript" src="https://valentinsvidrigaylov.github.io/tonejs/tonejs-instruments-master/Tonejs-Instruments.js"></script>
 <script src="https://unpkg.com/tone"></script>
+<!--script type="text/javascript" src="./tonejs-instruments-master/external-js/nprogress.js"></script-->
+
+<!--script type="text/javascript" src="./tonejs-instruments-master/external-js/Tone.js"></script-->
+
+<!--script>
+        NProgress.start();
+        // load samples //
+
+        var samples = SampleLibrary.load({
+            instruments: ['piano', 'bass-electric', 'bassoon', 'cello', 'clarinet', 'contrabass', 'flute', 'french-horn', 'guitar-acoustic', 'guitar-electric','guitar-nylon', 'harmonium', 'harp', 'organ', 'saxophone', 'trombone', 'trumpet', 'tuba', 'violin', 'xylophone'],
+            baseUrl: "samples/"
+        })
+
+
+        // show keyboard on load //
+        var current
+
+
+        Tone.Buffer.on('load', function() {
+            document.querySelector(".container").style.display = 'block';
+            document.querySelector("#loading").style.display = 'none';
+            NProgress.done();
+
+            // loop through instruments and set release, connect to master output
+            for (var property in samples) {
+                if (samples.hasOwnProperty(property)) {
+                    console.log(samples[property])
+                    samples[property].release = .5;
+                    samples[property].toMaster();
+                }
+            }
+
+            current = samples['piano'];
+
+            select.on('change', function(v) {
+                current = samples[v.value];
+            })
+
+
+        })
+
+        Tone.Buffer.on('error', function() {
+            document.querySelector("#loading").innerHTML = "I'm sorry, there has been an error loading the samples. This demo works best on on the most up-to-date version of Chrome.";
+        })
+
+
+
+
+        // create Nexus UI //
+        Nexus.colors.accent = "#f00"
+
+        var select = new Nexus.Select('#Selector', {
+            'size': [300, 30],
+            'options': Object.keys(samples)
+        });
+
+        var keyboardUI = new Nexus.Piano('#Keyboard', {
+            'size': [1000, 125],
+            'mode': 'button', // 'button', 'toggle', or 'impulse'
+            'lowNote': 36,
+            'highNote': 72
+        })
+
+
+        keyboardUI.on('change', function(note) {
+            console.log(Tone.Frequency(note.note, "midi").toNote());
+            if (note.state === true) {
+                current.triggerAttack(Tone.Frequency(note.note, "midi").toNote());
+            } else if (note.state === false) {
+                current.triggerRelease(Tone.Frequency(note.note, "midi").toNote());
+            }
+        })
+
+    </script-->
 <script>
 const key_width = 5;
 const keyborder_width = 1.25;
 const key_height = 280;
-
-const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+const gain = new Tone.Gain(100).toDestination();
+var chorus = new Tone.Chorus(4, 5, 1);
+//const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+const synth = new Tone.Sampler({
+	urls: {
+		"C4": "C4.mp3",
+		"D#4": "Ds4.mp3",
+		"F#4": "Fs4.mp3",
+		"A4": "A4.mp3",
+	},
+	release: 1,
+	baseUrl: "./tonejs-instruments-master/samples/guitar-electric/",
+}).toDestination().connect(new Tone.Distortion(0.95).connect(gain).toMaster()).connect(chorus);
 
 let keyMap = [0,2,1,4,3,5,7,6,9,8,11,10] // ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"] to ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
 let octaveText = document.getElementById('octaveValue');
-const notes = ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
+const notes = JSON.parse(localStorage.getItem('notes')) || function(){localStorage.setItem('notes', JSON.stringify(["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]));return ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]}();
 let octave = Number(localStorage.getItem('octave')) || 1; //init octave
 let synthsvg = document.querySelector('svg#synth');
 let overoctaves = 0;
@@ -172,7 +257,9 @@ function getKeysByValue(object, value) {
 
 window.onkeydown = (e) => { //[0,2,1,4,3,5,7,6,9,8,11,10] // ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"] to ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
 e.stopPropagation(); 
-let pressedKeyMapped = getKeysByValue(JSON.parse(localStorage.getItem('keys')), e.key.toLowerCase());
+let keys = JSON.parse(localStorage.getItem('keys')) || function(){localStorage.setItem('keys', JSON.stringify(["q","w","e","r","t","y","u","i","o","p","[","]"]));return ["q","w","e","r","t","y","u","i","o","p","[","]"]}();
+console.log(keys);
+let pressedKeyMapped = getKeysByValue(keys, e.key.toLowerCase());
 console.log(e.key.toLowerCase());
 if (pressedKeyMapped != undefined) {
 for (let i = 0; i < pressedKeyMapped.length; i++ ){
@@ -191,7 +278,8 @@ synthsvg.children[mappedKey].setAttribute("isPressed",true);
 
 window.onkeyup = (e) => { //[0,2,1,4,3,5,7,6,9,8,11,10] // ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"] to ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
 e.stopPropagation(); 
-let pressedKeyMapped = getKeysByValue(JSON.parse(localStorage.getItem('keys')), e.key.toLowerCase());
+let keys = JSON.parse(localStorage.getItem('keys')) || function(){localStorage.setItem('keys', ["q","w","e","r","t","y","u","i","o","p","[","]"]);return JSON.stringify(["q","w","e","r","t","y","u","i","o","p","[","]"])}();
+let pressedKeyMapped = getKeysByValue(keys, e.key.toLowerCase());
 console.log(e.key.toLowerCase());
 if (pressedKeyMapped != undefined) {
 for (let i = 0; i < pressedKeyMapped.length; i++ ){
