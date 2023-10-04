@@ -53,7 +53,7 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 }.wp-block-separator{}.wp-block-separator:not(.is-style-wide):not(.is-style-dots):not(.alignwide):not(.alignfull){width: 100px}</style>
-<style id="core-block-supports-inline-css">.wp-container-2.wp-container-2{justify-content:flex-end;}.wp-container-5.wp-container-5{justify-content:center;}.wp-container-3.wp-container-3,.wp-container-6.wp-container-6{justify-content:space-between;}</style>
+<style id="core-block-supports-inline-css">.wp-container-2.wp-container-2{justify-content:flex-end;}.wp-container-3.wp-container-3,.wp-container-7.wp-container-7{justify-content:space-between;}.wp-container-5.wp-container-5,.wp-container-6.wp-container-6{justify-content:center;}</style>
 <style id="wp-webfonts-inline-css">@font-face{font-family:"DM Sans";font-style:normal;font-weight:400;font-display:fallback;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Regular.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"DM Sans";font-style:italic;font-weight:400;font-display:fallback;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Regular-Italic.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"DM Sans";font-style:normal;font-weight:700;font-display:fallback;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Bold.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"DM Sans";font-style:italic;font-weight:700;font-display:fallback;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Bold-Italic.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:300;font-display:block;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/ibm-plex-mono/IBMPlexMono-Light.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:block;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"IBM Plex Mono";font-style:italic;font-weight:400;font-display:block;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/ibm-plex-mono/IBMPlexMono-Italic.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:700;font-display:block;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/ibm-plex-mono/IBMPlexMono-Bold.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:Inter;font-style:normal;font-weight:200 900;font-display:fallback;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/inter/Inter-VariableFont_slnt,wght.ttf') format('truetype');font-stretch:normal;}@font-face{font-family:"Source Serif Pro";font-style:normal;font-weight:200 900;font-display:fallback;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/source-serif-pro/SourceSerif4Variable-Roman.ttf.woff2') format('woff2');font-stretch:normal;}@font-face{font-family:"Source Serif Pro";font-style:italic;font-weight:200 900;font-display:fallback;src:url('https://valentinsvidrigaylov.github.io/tonejs/wp-content/themes/twentytwentythree/assets/fonts/source-serif-pro/SourceSerif4Variable-Italic.ttf.woff2') format('woff2');font-stretch:normal;}</style>
 <script src="https://valentinsvidrigaylov.github.io/tonejs/wp-includes/blocks/navigation/view.min.js?ver=886680af40b7521d60fc" id="wp-block-navigation-view-js"></script>
 <script src="https://valentinsvidrigaylov.github.io/tonejs/wp-includes/blocks/navigation/view-modal.min.js?ver=b478fa3cd1475dec97d3" id="wp-block-navigation-view-2-js"></script>
@@ -91,6 +91,10 @@ margin-right: auto;
 
 
 
+<h3 class="wp-block-heading has-text-align-center" id="octaveValue">Least octave: </h3>
+
+
+
 <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-5 wp-block-buttons-is-layout-flex">
 <div class="wp-block-button" id="octave+"><a class="wp-block-button__link wp-element-button">octave+</a></div>
 
@@ -101,14 +105,21 @@ margin-right: auto;
 
 
 
-<h3 class="wp-block-heading has-text-align-center" id="octaveValue">Least octave: </h3>
+<h3 class="wp-block-heading has-text-align-center" id="keysValue">Keys: </h3>
 
 
-<svg style="height: 282.5px; width: 775px" id="synth"><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="1.25" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="56.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="38.75" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="111.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="93.75" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="166.25" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="221.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="203.75" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="276.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="258.75" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="331.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="312.75" y="1.25"></rect>
 
-<rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="386.25" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="441.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="423.125" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="496.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="478.125" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="551.25" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="606.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="590" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="661.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="645" y="1.25"></rect><rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="716.25" y="1.25"></rect><rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="700" y="1.25"></rect>
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-6 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button" id="key+"><a class="wp-block-button__link wp-element-button">Add key</a></div>
 
-</svg>
+
+
+<div class="wp-block-button" id="key-"><a class="wp-block-button__link wp-element-button">Remove key</a></div>
+</div>
+
+
+<div id="synth">
+</div>
 <script type="text/javascript" src="https://valentinsvidrigaylov.github.io/tonejs/tonejs-instruments-master/Tonejs-Instruments.js"></script>
 <script src="https://unpkg.com/tone"></script>
 <!--script type="text/javascript" src="./tonejs-instruments-master/external-js/nprogress.js"></script-->
@@ -204,52 +215,108 @@ const synth = new Tone.Sampler({
 }).toDestination().connect(new Tone.Distortion(0.95).connect(gain).toMaster()).connect(chorus);
 
 let keyMap = [0,2,1,4,3,5,7,6,9,8,11,10] // ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"] to ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]
+let keysText = document.getElementById('keysValue');
+let keysLength = Number(localStorage.getItem('keyLength')) || 12;
 let octaveText = document.getElementById('octaveValue');
 const notes = JSON.parse(localStorage.getItem('notes')) || function(){localStorage.setItem('notes', JSON.stringify(["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]));return ["C","D","C#","E","D#","F","G","F#","A","G#","B","A#"]}();
+let tonesNum = notes.filter((e)=>!e.includes('#'));
+let semiTonesNum = notes.filter((e)=>e.includes('#'));
 let octave = Number(localStorage.getItem('octave')) || 1; //init octave
-let synthsvg = document.querySelector('svg#synth');
+let synthblock = document.querySelector('div#synth');
+//<svg style="height: 282.5px; width: 775px" id="synth"><\/svg>
+let synthsvg// = document.createElementNS("http://www.w3.org/2000/svg", "svg");//document.createElement('svg');
+//synthsvg.id = 'synth';
 let overoctaves = 0;
 
 octaveText.textContent = 'Least octave: '+ octave;
+keysText.textContent = 'Keys: '+ keysLength;
 
-for (let i of synthsvg.children) {
+function renderSynth() {
+overoctaves = 0;
+synthblock.innerHTML = "";
+synthsvg = null;
+synthsvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");//document.createElement('svg');
+synthsvg.id = 'synth';
+for (let i = 0; i < keysLength; i++) {
+let keyToAppend;
+if (notes[i%12].includes('#')) {
+//<rect class="semi-tone" width="35" height="180" stroke="black" stroke-width="3" fill="black" x="38.75" y="1.25"/
+keyToAppend = document.createElementNS("http://www.w3.org/2000/svg", "rect");//document.createElement('rect');
+keyToAppend.setAttribute('width', 35);
+keyToAppend.setAttribute('height', 180);
+keyToAppend.setAttribute('stroke', 'black');
+keyToAppend.setAttribute('stroke-width', 2.5);
+keyToAppend.setAttribute('fill', 'black');
+keyToAppend.classList.add('semi-tone');
+//x*55-17.5+1.25, x - num of tones before
+//keyToAppend.setAttribute('x', overoctaves*386+tonesNum.length*55-17.5+1.25/2);
+//notes.slice(0, notes.indexOf(notes[keyMap[4]])).filter((e)=>!e.includes('#')).length
+keyToAppend.setAttribute('x', overoctaves*385+notes.slice(0, notes.indexOf(notes[keyMap[i%12]])).filter((e)=>!e.includes('#')).length*55-17.5+1.25);
+keyToAppend.setAttribute('y', 1.25);
+
+//synthsvg.appendChild(keyToAppend)
+} else {
+//<rect class="tone" width="55" height="280" rx="10" stroke="black" stroke-width="3" fill="white" x="1.25" y="0.675"><\/rect>
+keyToAppend = document.createElementNS("http://www.w3.org/2000/svg", "rect");//document.createElement('rect');
+keyToAppend.setAttribute('width', 55);
+keyToAppend.setAttribute('height', 280);
+keyToAppend.setAttribute('stroke', 'black');
+keyToAppend.setAttribute('stroke-width', 2.5);
+keyToAppend.setAttribute('fill', 'white');
+keyToAppend.classList.add('tone');
+//x*55-17.5+1.25, x - num of tones before
+keyToAppend.setAttribute('rx', 10);
+keyToAppend.setAttribute('x', overoctaves*385+tonesNum.indexOf(notes[i%12])*55+1.25);
+keyToAppend.setAttribute('y', 1.25);
+}
+synthsvg.appendChild(keyToAppend);
+//for (let i of synthsvg.children) {
 let curoveroctaves = overoctaves; //we need to save current overoctave value
-console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
-i.onmousedown = (e) => {
+console.log(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
+console.log(i);
+keyToAppend.onmousedown = (e) => {
 e.stopPropagation();
-if (i.getAttribute("isPressed") == undefined) {
-i.setAttribute("isPressed",'');
-synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+if (keyToAppend.getAttribute("isPressed") == undefined) {
+keyToAppend.setAttribute("isPressed",'');
+synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
 }
-console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
+console.log(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
-i.onmouseup = (e) => {
+keyToAppend.onmouseup = (e) => {
 e.stopPropagation();
-if (i.getAttribute("isPressed") != undefined) {
-i.removeAttribute("isPressed");
-synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+if (keyToAppend.getAttribute("isPressed") != undefined) {
+keyToAppend.removeAttribute("isPressed");
+synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
 }
-console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
+console.log(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
-i.onmouseleave = (e) => {
+keyToAppend.onmouseleave = (e) => {
 e.stopPropagation();
-synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
-//console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
+synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+//console.log(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
-i.ontouchstart = (e) => {
+keyToAppend.ontouchstart = (e) => {
 e.stopPropagation();
-synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
-console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
+synth.triggerAttack(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+console.log(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
-i.ontouchend = (e) => {
+keyToAppend.ontouchend = (e) => {
 e.stopPropagation();
-synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
-console.log(`${notes[[...synthsvg.children].indexOf(i)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
+synth.triggerRelease(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`, Tone.now());
+console.log(`${notes[[...synthsvg.children].indexOf(keyToAppend)-12*curoveroctaves ]}`+`${octave+curoveroctaves }`);
 }
-if ([...synthsvg.children].indexOf(i) == 11) { //12 - octave length
+if ((i+1)%12==0 && i != 0) {//[...synthsvg.children].indexOf(keyToAppend) == 11) { //12 - octave length
 overoctaves++;
 }
+//synthsvg.appendChild(keyToAppend);
 }
+
+synthsvg.setAttribute('width', [...synthsvg.children].filter(e=>e.classList.contains('tone')).length*55+1.25*2);
+synthsvg.setAttribute('height', 280+1.25*2);
+synthblock.appendChild(synthsvg);
+}
+
+renderSynth();
 
 function getKeysByValue(object, value) {
   return Object.keys(object).filter(key => object[key] === value);
@@ -263,13 +330,13 @@ let pressedKeyMapped = getKeysByValue(keys, e.key.toLowerCase());
 console.log(e.key.toLowerCase());
 if (pressedKeyMapped != undefined) {
 for (let i = 0; i < pressedKeyMapped.length; i++ ){
-let mappedKey = keyMap[pressedKeyMapped[i]];
+let mappedKey = Number(pressedKeyMapped[i])-Number(pressedKeyMapped[i])%12+keyMap[pressedKeyMapped[i]%12];
 console.log('key',pressedKeyMapped );
 console.log('mapped',mappedKey );
 synthsvg.children[mappedKey].dispatchEvent(new Event('mousedown'));
 console.log(synthsvg.children[mappedKey].getAttribute('isPressed'));
 /*if (!synthsvg.children[mappedKey].getAttribute("isPressed")) {
-synthsvg.children[mappedKey].dispatchEvent(new Event('mousedown'));
+//synthsvg.children[mappedKey].dispatchEvent(new Event('mousedown'));
 synthsvg.children[mappedKey].setAttribute("isPressed",true);
 }*/
 }
@@ -283,7 +350,7 @@ let pressedKeyMapped = getKeysByValue(keys, e.key.toLowerCase());
 console.log(e.key.toLowerCase());
 if (pressedKeyMapped != undefined) {
 for (let i = 0; i < pressedKeyMapped.length; i++ ){
-let mappedKey = keyMap[pressedKeyMapped[i]];
+let mappedKey = Number(pressedKeyMapped[i])-Number(pressedKeyMapped[i])%12+keyMap[pressedKeyMapped[i]%12];
 console.log('key',pressedKeyMapped );
 console.log('mapped',mappedKey );
 synthsvg.children[mappedKey].dispatchEvent(new Event('mouseup'));
@@ -313,6 +380,28 @@ octave--;
 localStorage.setItem('octave', octave);
 octaveText.textContent = 'Least octave: '+ octave;
 }; 
+
+let increaseKeys = document.getElementById('key+');
+let decreaseKeys = document.getElementById('key-');
+increaseKeys.onclick = () => {
+if (keysLength >= 48) {
+return;
+}
+keysLength++;
+renderSynth();
+localStorage.setItem('keyLength', keysLength);
+keysText.textContent = 'Keys: '+ keysLength;
+};
+decreaseKeys.onclick = () => {
+if (keysLength < 1) {
+return;
+}
+keysLength--;
+renderSynth();
+localStorage.setItem('keyLength', keysLength);
+keysText.textContent = 'Keys: '+ keysLength;
+}; 
+
 
 /*
 let C2 = document.getElementById("C2");
@@ -352,12 +441,13 @@ window.onkeyup = (e) => {
         C2.removeAttribute("isPressed");
     }
 }*/
+
 </script>
 
 <footer class="wp-block-template-part">
 <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
 	
-	<div class="wp-block-group alignwide is-content-justification-space-between is-layout-flex wp-container-6 wp-block-group-is-layout-flex" style="padding-top:var(--wp--preset--spacing--40)">
+	<div class="wp-block-group alignwide is-content-justification-space-between is-layout-flex wp-container-7 wp-block-group-is-layout-flex" style="padding-top:var(--wp--preset--spacing--40)">
 		<p class="wp-block-site-title"><a href="https://valentinsvidrigaylov.github.io/tonejs/" target="_self" rel="home" aria-current="page">Главная</a></p>
 		
 		<p class="has-text-align-right">
